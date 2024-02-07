@@ -10,7 +10,7 @@ def csv_to_parquet():
     csv_file = st.file_uploader("Upload a CSV file", type=["csv"])
     file_name = st.text_input("Downloaded Parquet File Name")
     if csv_file:
-        df = pd.read_csv(csv_file)
+        df = pd.read_csv(csv_file, error_bad_lines=False)
         if file_name:
             file_name = file_name + ".parquet"
         else:
